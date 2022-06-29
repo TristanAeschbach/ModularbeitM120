@@ -1,8 +1,9 @@
 <?php
+session_start();
 include_once "includer.php";
 class loginModel
 {
-    public function __construct($email, $password, $checked = false)
+    public function __construct($email, $password)
     {
         $dbConnector = new dbConnector();
         $mysql = $dbConnector->getThing();
@@ -14,9 +15,11 @@ class loginModel
                     $_SESSION['email'] = $row['email'];
                     $_SESSION['admin'] = $row['admin'];
                     $_SESSION['name'] = $row['vorname'].", ".$row['name'];
-                    $_SESSION['stay'] = $checked;
+
+                    echo "correct";
                     new reroute("index.php");
                 }else{
+                    echo "wrong password";
                     new reroute("loginView.php?error=wrongPassword");
                 }
             }
