@@ -1,6 +1,7 @@
 <?php
 class dbConnector
 {
+    private $mysqli = "";
     public function __construct()
     {
         $host     = 'localhost';
@@ -8,10 +9,12 @@ class dbConnector
         $password = '';
         $database = 'modularbeitm120';
 
-        $mysqli = new mysqli($host, $username, $password, $database);
-        if ($mysqli->connect_error) {
-            die("Verbindung misslungen: " . $mysqli->connect_error);
+        $this->mysqli = new mysqli($host, $username, $password, $database);
+        if ($this->mysqli->connect_error) {
+            die("Verbindung misslungen: " . $this->mysqli->connect_error);
         }
-        return $mysqli;
+    }
+    function getThing(){
+        return $this->mysqli;
     }
 }

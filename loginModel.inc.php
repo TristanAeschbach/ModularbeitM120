@@ -1,10 +1,11 @@
 <?php
-
+include_once "includer.php";
 class loginModel
 {
     public function __construct($email, $password, $checked = false)
     {
-        $mysql = new dbConnector();
+        $dbConnector = new dbConnector();
+        $mysql = $dbConnector->getThing();
         $result = $mysql->query("SELECT * from modularbeitm120.benutzer where email = '$email'");
         if ($result->num_rows == 1) {
             while($row = $result->fetch_assoc()) {
