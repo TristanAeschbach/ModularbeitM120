@@ -14,9 +14,9 @@ class loginModel
                     $_SESSION['admin'] = $row['admin'];
                     $_SESSION['name'] = $row['vorname'].", ".$row['name'];
                     $_SESSION['stay'] = $checked;
-                    new reroute("index.php", __FILE__);
+                    new reroute("index.php");
                 }else{
-                    new reroute("loginView.php?error=wrongPassword", __FILE__);
+                    new reroute("loginView.php?error=wrongPassword");
                 }
             }
         }

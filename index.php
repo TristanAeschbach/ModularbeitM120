@@ -1,10 +1,8 @@
 <?php
 session_start();
-include 'view/head.html';
-include "model/includer.php";
-new includer(__FILE__);
+include 'head.html';
 if(empty($_SESSION)){
-    new reroute("loginView.php", __FILE__);
+    new reroute("loginView.php");
 }
 echo "index";
-include 'view/foot.html';
+include 'foot.html';

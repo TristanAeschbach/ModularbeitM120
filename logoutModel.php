@@ -6,6 +6,6 @@ class logoutModel
     {
         session_start();
         session_destroy();
-        new reroute("index.php", __FILE__);
+        new reroute("index.php");
     }
 }
