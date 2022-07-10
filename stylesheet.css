@@ -1,3 +1,73 @@
 .main{
+    width: 100%;
     padding: 15px;
+}
+.bucherListe{
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-evenly;
+}
+.menu{
+    grid-column: 1 / span 2;
+
+    border: 2px solid black;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+.buch{
+    border: 2px solid black;
+    padding: 10px;
+    margin-bottom: 15px;
+
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+    width: 100%;
+}
+.head{
+    border-bottom: 2px #b70000 solid;
+    padding-bottom: 10px;
+
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: auto auto;
+}
+.left{
+    grid-column: 1;
+}
+.right{
+    grid-column: 2;
+    text-align: right;
+}
+.bod{
+    margin: 10px 0 5px;
+    grid-row: 2;
+}
+.foot{
+    border-top: 2px black solid;
+    margin-top: 10px;
+    grid-row: 3;
+    display: grid;
+    grid-template-columns: auto auto;
+}
+.link{
+    grid-row: 4;
+    text-align: center;
+}
+.linkA{
+    text-decoration: none;
+}
+.showMore{
+    width: 100%;
+    text-align: center;
+}
+.filter{
+    display: inline-flex;
+    align-items: baseline;
+}
+.dropdown{
+    padding: 10px;
+}
+.spacer{
+    padding: 10px;
 }

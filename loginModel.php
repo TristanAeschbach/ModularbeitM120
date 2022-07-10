@@ -16,10 +16,9 @@ class loginModel
                     $_SESSION['admin'] = $row['admin'];
                     $_SESSION['name'] = $row['vorname'].", ".$row['name'];
 
-                    echo "correct";
                     new reroute("index.php");
                 }else{
-                    echo "wrong password";
+
                     new reroute("loginView.php?error=wrongPassword");
                 }
             }
