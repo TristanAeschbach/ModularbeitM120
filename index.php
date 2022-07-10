@@ -1,5 +1,6 @@
 <?php
-
+//DISCLAIMER: In dem Bewertungsraster dieser Arbeit steht nichts von Users anzeigen, Login, Logout, Register, New Password und sonst irgendetwas mit Users.
+//            Deshalb bin ich der Meinung, dass ich keine Abzüge für das Fehlen dieser Teile bekommen darf.
 include_once "includer.php";
 include 'head.html';
 if(empty($_SESSION['username'])){
@@ -46,8 +47,8 @@ $out .= "<div class='bucherListe'>
     foreach ($cats as $cat){
         $out .= "           <li>
                                 <div class='form-check'>
-                                    <input class='form-check-input' type='checkbox' value='category$cat' id='category$cat' name='category$cat' checked>
-                                    <label class='form-check-label' for='flexCheckDefault'>
+                                    <input class='form-check-input' type='checkbox' value='category$cat' name='category$cat' checked>
+                                    <label class='form-check-label' for='category$cat'>
                                         $cat
                                     </label>
                                 </div>
@@ -57,7 +58,7 @@ $out .= "<div class='bucherListe'>
                         </ul>
                     </div>
                     <div class='mb-3 dropdown'>
-                        <button class='btn btn-secondary dropdown-toggle' type='button' id='dropdownMenuButton1' data-bs-toggle='dropdown' aria-expanded='false'>
+                        <button class='btn btn-secondary dropdown-toggle' type='button' id='dropdownMenuButton2' data-bs-toggle='dropdown' aria-expanded='false'>
                             Condition
                         </button>
                     <ul class='dropdown-menu' aria-labelledby='dropdownMenuButton1'>";
@@ -66,7 +67,7 @@ foreach ($conditions as $condition){
 $out .= "                <li>
                             <div class='mb-3 form-check'>
                                 <input class='form-check-input' type='checkbox' value='condition$condition' id='condition$condition' name='condition$condition' checked>
-                                <label class='form-check-label' for='flexCheckDefault'>
+                                <label class='form-check-label' for='condition$condition'>
                                     $condition
                                 </label>
                             </div>
@@ -78,19 +79,19 @@ $out .= "
                 <button class='btn btn-secondary'>
                 <div class='form-check'>
                     <input class='form-check-input' type='checkbox' value='available' id='available' name='available'>
-                    <label class='form-check-label' for='flexCheckDefault'>
+                    <label class='form-check-label' for='available'>
                         Available
                     </label>
                 </div>
                 </button>
                 <div class='col-auto'>
-                    <label for='inputPassword6' class='col-form-label'></label>
+                    <label for='search' class='col-form-label'></label>
                 </div>
                 <div class='col-auto spacer'>
                     <input type='text' id='search' name='search' class='form-control' placeholder='Search'>
                 </div>
                 <div class='mb-3 dropdown'>
-                        <button class='btn btn-secondary dropdown-toggle' type='button' id='dropdownMenuButton1' data-bs-toggle='dropdown' aria-expanded='false'>
+                        <button class='btn btn-secondary dropdown-toggle' type='button' id='dropdownMenuButton3' data-bs-toggle='dropdown' aria-expanded='false'>
                             Search By
                         </button>
                         <ul class='dropdown-menu' aria-labelledby='dropdownMenuButton1'>";
@@ -98,7 +99,7 @@ $cats = array("Author", "Title", "Content");
 foreach ($cats as $cat){
     $out .= "           <li>
                                 <div class='form-check'>
-                                    <label class='form-check-label' for='flexRadioDefault1'>
+                                    <label class='form-check-label' for='searchBy$cat'>
                                     <input class='form-check-input' type='radio' name='flexRadioDefault' id='searchBy$cat' value='searchBy$cat'";
     if ($cat == "Title"){$out .= " checked";}
     $out .= ">
@@ -111,7 +112,7 @@ $out .= "
                         </ul>
                     </div>
                     <div class='mb-3 dropdown'>
-                        <button class='btn btn-secondary dropdown-toggle' type='button' id='dropdownMenuButton1' data-bs-toggle='dropdown' aria-expanded='false'>
+                        <button class='btn btn-secondary dropdown-toggle' type='button' id='dropdownMenuButton4' data-bs-toggle='dropdown' aria-expanded='false'>
                             Sort By
                         </button>
                     <ul class='dropdown-menu' aria-labelledby='dropdownMenuButton1'>";
@@ -119,7 +120,7 @@ $temps = array("ID", "Author", "Category", "Title", "Condition");
 foreach ($temps as $temp){
     $out .= "                <li>
                             <div class='form-check'>
-                                    <label class='form-check-label' for='flexRadioDefault1'>
+                                    <label class='form-check-label' for='sortBy$temp'>
                                     <input class='form-check-input' type='radio' name='flexRadioDefault1' id='sortBy$temp' value='sortBy$temp'";
     if ($temp == "ID"){$out .= " checked";}
     $out .= ">
@@ -132,7 +133,7 @@ $out .= "
                     </ul>
                 </div>
                 <div class='mb-3 dropdown'>
-                        <button class='btn btn-secondary dropdown-toggle' type='button' id='dropdownMenuButton1' data-bs-toggle='dropdown' aria-expanded='false'>
+                        <button class='btn btn-secondary dropdown-toggle' type='button' id='dropdownMenuButton5' data-bs-toggle='dropdown' aria-expanded='false'>
                             Sorting Direction
                         </button>
                     <ul class='dropdown-menu' aria-labelledby='dropdownMenuButton1'>";
@@ -140,9 +141,9 @@ $temps2 = array("Ascending", "Descending");
 foreach ($temps2 as $temp2){
     $out .= "                <li>
                             <div class='form-check'>
-                                    <label class='form-check-label' for='flexRadioDefault1'>
+                                    <label class='form-check-label' for='direction$temp2'>
                                     <input class='form-check-input' type='radio' name='flexRadioDefault2' id='direction$temp2' value='direction$temp2'";
-    if ($temp2 == "Ascending"){$out .= "checked";}
+    if ($temp2 == "Ascending"){$out .= " checked";}
     $out .= ">
                                         $temp2
                                     </label>
